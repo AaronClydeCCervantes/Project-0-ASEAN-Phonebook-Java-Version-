@@ -165,7 +165,32 @@ public class Main
     private int convertChoices(int choice)
     {
         // Complete this method.
-        return 0;
+        switch (choice) {
+            case 1: // Federation of Malaysia
+                return 60;
+            case 2: // Republic of Indonesia
+                return 62;
+            case 3: // Republic of the Philippines
+                return 63;
+            case 4: // Republic of Singapore
+                return 65;
+            case 5: // Kingdom of Thailand
+                return 66;
+            case 6: // Socialist Republic of Vietnam
+                return 84;
+            case 7: // Brunei Darussalam
+                return 673;
+            case 8: // Kingdom of Cambodia
+                return 855;
+            case 9: // Lao People's Democratic Republic
+                return 856;
+            case 10: // Republic of the Union of Myanmar
+                return 95;
+            case 11: // Democratic Republic of Timor Leste
+                return 670;
+            default: // Invalid choice, returning -1 as an error code
+                return -1;
+                }
     }
 
     /**
