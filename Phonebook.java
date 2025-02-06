@@ -19,7 +19,7 @@ public class Phonebook
     public int getSize()
     {
         // Complete this method
-        return 0;
+        return size;
     }
 
     /**
