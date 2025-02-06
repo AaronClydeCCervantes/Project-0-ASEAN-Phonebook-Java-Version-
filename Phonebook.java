@@ -91,9 +91,8 @@ public class Phonebook
     {
         // Complete this method
         Person[] newContacts = new Person[contacts.length * 2];  //Create a new array with double the size of the current one
-        for (int i = 0; i < size; i++) {
-            newContacts[i] = contacts[i]; // Copy all the existing contacts to the new array
-        }
+        // Copy all the existing contacts to the new array
+        if (size >= 0) System.arraycopy(contacts, 0, newContacts, 0, size);
         contacts = newContacts; // Update the contacts reference to the new array
     }
 
@@ -217,7 +216,27 @@ public class Phonebook
     public String printContactsFromCountryCodes(int... countryCodes)
     {
         // Complete this method.
-        return "";
+        String result = ""; // Initialize the result string.
+
+        // Iterate through all the contacts in the phonebook.
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null) { // Make sure the contact is not null.
+                int contactCountryCode = contacts[i].getCountryCode(); // Assuming each contact has a getCountryCode() method.
+
+                // Check if the contact's country code is in the provided countryCodes array.
+                for (int countryCode : countryCodes) {
+                    if (contactCountryCode == countryCode) {
+                        result += contacts[i].toString() + "\n"; // Append the contact to the result string.
+                        break; // Stop checking further country codes for this contact.
+                    }
+                }
+            }
+        }
+        if (result.isEmpty()) {
+            return "No contacts found for the given country codes."; // If no contacts were found, return a message indicating so.
+        }
+        return result; // Return the final result containing matching contacts.
+
     }
 
     /**
