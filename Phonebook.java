@@ -111,8 +111,23 @@ public class Phonebook
     private int findIndexInsertion(Person p)
     {
         // Complete this method
+        int left = 0;
+        int right = size - 1;
 
-        return 0;
+        while (left <= right) {
+            int mid = left + (right - left) / 2; // Locate the middle index
+            int compare = contacts[mid].compareTo(p);
+
+            if (compare == 0) {
+                return mid; // Exact match found
+            }
+            if (compare < 0) {
+                left = mid + 1; // Search the right half
+            } else {
+                right = mid - 1; // Search the left half
+            }
+        }
+        return left; // The index where the person should be inserted
     }
 
     /**
