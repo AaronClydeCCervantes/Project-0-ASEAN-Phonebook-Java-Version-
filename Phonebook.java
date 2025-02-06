@@ -168,6 +168,13 @@ public class Phonebook
     public String toString()
     {
         // Complete this method.
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null) { // If the contact is not null, append its string representation
+                sb.append(contacts[i].toString());
+            }
+        }
+        // Return concatenated string
+        return sb.toString();
     }
 }
