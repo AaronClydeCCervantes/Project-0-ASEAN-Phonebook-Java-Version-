@@ -105,6 +105,15 @@ public class Phonebook
     public void insert(Person p)
     {
         // Complete this method
+        if (size == contacts.length) {
+            increasePhonebookMaxSize(); // If the phonebook is full, increase its size
+        }
+        int index = findIndexInsertion(p); // Find the appropriate index for the new person
+        for (int i = size; i > index; i--) {
+            contacts[i] = contacts[i - 1]; // Shift elements to the right to make space for the new person
+        }
+        contacts[index] = p; // Insert the new person at the found index
+        incrSize();
     }
 
     /**
@@ -144,6 +153,20 @@ public class Phonebook
     public Person deleteContact(String id)
     {
         // Complete this method...
+        for (int i = 0; i < size; i++) { // Find the index of the contact to be deleted by its ID
+            if (contacts[i] != null && contacts[i].getId().equals(id)) { // If we find the contact with the matching ID
+                Person p = contacts[i]; // Store the deleted contact
+
+                // Shift the elements to the left to fill the gap
+                for (int j = i + 1; j < size; j++) {
+                    contacts[j - 1] = contacts[j];
+                }
+
+                contacts[size - 1] = null; // Nullify the last element since it's now an extra
+                decrSize();
+                return p; // Return the deleted contact
+            }
+        }
         return null;
     }
 
@@ -160,6 +183,23 @@ public class Phonebook
     private void adjustPhonebook(int start, int end, String direction)
     {
         // Complete this method...
+        if (direction.equals("forward")) { // Shifting elements forward
+            for (int i = end; i >= start; i--) { // Start from end to avoid overwriting elements
+                if (i + 1 < contacts.length) { // Ensure we are within array bounds
+                    contacts[i + 1] = contacts[i]; // Shift element forward
+                }
+            }
+            contacts[start] = null; // Set the element at start to null after shifting
+        }
+        else if (direction.equals("backward")) { // Shifting elements backward
+            for (int i = start; i <= end; i++) { // Start from start to avoid overwriting elements
+                if (i - 1 >= 0) { // Ensure we are within array bounds
+                    contacts[i - 1] = contacts[i]; // Shift element backward
+                }
+            }
+            contacts[end] = null; // Set the element at end to null after shifting
+        }
+
     }
 
     /**
