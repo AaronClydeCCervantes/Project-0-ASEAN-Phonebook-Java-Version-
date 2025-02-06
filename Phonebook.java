@@ -99,7 +99,7 @@ public class Phonebook
     /**
      * Inserts a new person object at its appropriate lexicographic location in the phonebook.
      *
-     * @param p Person to be addded to the Phonebook.
+     * @param p Person to be added to the Phonebook.
      */
     public void insert(Person p)
     {
@@ -236,7 +236,6 @@ public class Phonebook
             return "No contacts found for the given country codes."; // If no contacts were found, return a message indicating so.
         }
         return result; // Return the final result containing matching contacts.
-
     }
 
     /**
@@ -244,16 +243,19 @@ public class Phonebook
      * 
      * @return The entire list of contacts present in this phonebook.
      */
-    public String toString()
-    {
+    public String toString() {
         // Complete this method.
-        StringBuilder sb = new StringBuilder();
+        String result = ""; // Initialize the result string.
+        if (isEmpty()) {
+            return "Phonebook is empty."; // If there are no contacts, return a suitable message.
+        }
+
+        // Iterate over all contacts
         for (int i = 0; i < size; i++) {
             if (contacts[i] != null) { // If the contact is not null, append its string representation
-                sb.append(contacts[i].toString());
+                result += contacts[i].toString(); // Concatenate the contact's string to result
             }
         }
-        // Return concatenated string
-        return sb.toString();
+        return result; // Return the concatenated string
     }
 }
