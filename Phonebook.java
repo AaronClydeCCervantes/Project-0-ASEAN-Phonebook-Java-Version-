@@ -28,12 +28,15 @@ public class Phonebook
      * @param index Index to get contact.
      * @return Person object from index. Null if index is not valid or out of range.
      */
-    public Person getContactAtIndex(int index)
-    {
+    public Person getContactAtIndex(int index) {
         // Complete this method
-        return null;
+        // Check if the index is out of range
+        if (index < 0 || index >= size) {
+            return null;
+        }
+        // Return the contact at the valid index
+        return contacts[index];
     }
-
     /**
      * Get the person object based on a given id.
      * 
