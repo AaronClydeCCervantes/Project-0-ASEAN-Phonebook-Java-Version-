@@ -90,11 +90,16 @@ public class Phonebook
     private void increasePhonebookMaxSize()
     {
         // Complete this method
+        Person[] newContacts = new Person[contacts.length * 2];  //Create a new array with double the size of the current one
+        for (int i = 0; i < size; i++) {
+            newContacts[i] = contacts[i]; // Copy all the existing contacts to the new array
+        }
+        contacts = newContacts; // Update the contacts reference to the new array
     }
 
     /**
      * Inserts a new person object at its appropriate lexicographic location in the phonebook.
-     * 
+     *
      * @param p Person to be addded to the Phonebook.
      */
     public void insert(Person p)
