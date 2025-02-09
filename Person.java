@@ -144,7 +144,7 @@ public class Person implements Comparable<Person>
             // DO NOT REMOVE THE @Override TAG
 
             // Compare by last name first
-            int lastNameComparison = this.getLName().compareTo(o.getLName());
+            int lastNameComparison = this.lname.compareTo(o.lname);
 
             // If last names are different, return the result
             if (lastNameComparison != 0) {
@@ -152,7 +152,7 @@ public class Person implements Comparable<Person>
             }
 
             // If last names are the same, compare by first name
-            return this.getFName().compareTo(o.getFName());
+            return this.fname.compareTo(o.fname);
         }
     }
 

@@ -244,18 +244,21 @@ public class Phonebook
      * @return The entire list of contacts present in this phonebook.
      */
     public String toString() {
-        // Complete this method.
-        String result = ""; // Initialize the result string.
+        // Use StringBuilder for better performance with string concatenation
+        StringBuilder result = new StringBuilder();
+
+        // If phonebook is empty, return a suitable message
         if (isEmpty()) {
-            return "Phonebook is empty."; // If there are no contacts, return a suitable message.
+            return "Phonebook is empty.";
         }
 
         // Iterate over all contacts
         for (int i = 0; i < size; i++) {
             if (contacts[i] != null) { // If the contact is not null, append its string representation
-                result += contacts[i].toString(); // Concatenate the contact's string to result
+                result.append(contacts[i].toString());
             }
         }
-        return result; // Return the concatenated string
+
+        return result.toString(); // Convert the StringBuilder to a string and return it
     }
 }
