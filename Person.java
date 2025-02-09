@@ -59,7 +59,7 @@ public class Person implements Comparable<Person>
      */
     public String getPronoun()
     {
-        return this.getSex().equals("Male") ? "His" : "Her";
+        return this.sex.equals("Male") ? "His" : "Her";
     }
 
     public String getOccupation()
