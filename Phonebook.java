@@ -182,23 +182,18 @@ public class Phonebook
     private void adjustPhonebook(int start, int end, String direction)
     {
         // Complete this method...
-        if (direction.equals("forward")) { // Shifting elements forward
-            for (int i = end; i >= start; i--) { // Start from end to avoid overwriting elements
-                if (i + 1 < contacts.length) { // Ensure we are within array bounds
-                    contacts[i + 1] = contacts[i]; // Shift element forward
-                }
+        if ("forward".equalsIgnoreCase(direction)) { // Shift left
+            for (int i = start; i < end; i++) {
+                contacts[i] = contacts[i + 1]; // Move next element to current position
             }
-            contacts[start] = null; // Set the element at start to null after shifting
+            contacts[end] = null; // Nullify last element
         }
-        else if (direction.equals("backward")) { // Shifting elements backward
-            for (int i = start; i <= end; i++) { // Start from start to avoid overwriting elements
-                if (i - 1 >= 0) { // Ensure we are within array bounds
-                    contacts[i - 1] = contacts[i]; // Shift element backward
-                }
+        else if ("backward".equalsIgnoreCase(direction)) { // Shift right
+            for (int i = end; i > start; i--) {
+                contacts[i] = contacts[i - 1]; // Move previous element to current position
             }
-            contacts[end] = null; // Set the element at end to null after shifting
+            contacts[start] = null; // Nullify first element
         }
-
     }
 
     /**
