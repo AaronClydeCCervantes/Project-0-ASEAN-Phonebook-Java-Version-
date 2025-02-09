@@ -162,6 +162,6 @@ public class Person implements Comparable<Person>
     public String toString()
     {
         return String.format("%s is a %s. %s number is %s", this.getFullName(),
-                this.getOccupation(), this.getPronoun(), this.getPhoneNumber());
+                this.occupation, this.getPronoun(), this.contactNum);
     }
 }
