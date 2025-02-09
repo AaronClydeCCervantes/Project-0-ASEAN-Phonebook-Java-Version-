@@ -117,7 +117,7 @@ public class Person implements Comparable<Person>
      */
     public String getPhoneNumber()
     {
-        return this.countryCode + "-" + this.areaCode + "-" + this.getContactNum();
+        return this.countryCode + "-" + this.areaCode + "-" + this.contactNum;
     }
 
     /**
