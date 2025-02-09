@@ -210,27 +210,29 @@ public class Phonebook
      */
     public String printContactsFromCountryCodes(int... countryCodes)
     {
-        // Complete this method.
-        String result = ""; // Initialize the result string.
+        StringBuilder result = new StringBuilder(); // Use StringBuilder for efficient concatenation
 
-        // Iterate through all the contacts in the phonebook.
+        // Iterate through all the contacts in the phonebook
         for (int i = 0; i < size; i++) {
-            if (contacts[i] != null) { // Make sure the contact is not null.
-                int contactCountryCode = contacts[i].getCountryCode(); // Assuming each contact has a getCountryCode() method.
+            if (contacts[i] != null) { // Ensure the contact is not null
+                int contactCountryCode = contacts[i].getCountryCode(); // Assuming each contact has a getCountryCode() method
 
-                // Check if the contact's country code is in the provided countryCodes array.
+                // Check if the contact's country code is in the provided countryCodes array
                 for (int countryCode : countryCodes) {
                     if (contactCountryCode == countryCode) {
-                        result += contacts[i].toString() + "\n"; // Append the contact to the result string.
-                        break; // Stop checking further country codes for this contact.
+                        result.append(contacts[i].toString()).append("\n"); // Append the contact to the result string
+                        break; // Once we find a match, we break out of the inner loop
                     }
                 }
             }
         }
+
+        // If no contacts were found, return a message indicating so
         if (result.isEmpty()) {
-            return "No contacts found for the given country codes."; // If no contacts were found, return a message indicating so.
+            return "No contacts found for the given country codes.";
         }
-        return result; // Return the final result containing matching contacts.
+
+        return result.toString(); // Return the final result containing matching contacts
     }
 
     /**
