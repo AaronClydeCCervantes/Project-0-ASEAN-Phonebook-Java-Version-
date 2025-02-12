@@ -32,6 +32,22 @@ public class Main
                     pb.insert(createNewPerson());
                     break;
                 case 2:
+
+                        String eid = prompt("Enter Contact ID to edit: ");
+                        Person ep = pb.getContact(eid);
+                        if (ep != null) {
+
+                            System.out.printf("Here is the Existing Contact about %s \n %s \n" , eid , ep);
+                            showMenu(2, 2);
+//                            int eopt = Integer.parseInt(prompt("Select Which Information to Edit: "));
+//                            if (eopt == 1) {
+//                                Person.setId(Scanner.nextLine());
+//                                break;
+//                            } else if (eopt == 2) {
+//                                break;
+//                            }
+
+                    }
                     break;
                 case 3:
                     String id = prompt("Enter contact ID to delete: ");
