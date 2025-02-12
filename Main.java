@@ -54,36 +54,43 @@ public class Main
                             switch (opt){
 
                                 case 1://edits ID
+                                    System.out.println("Original Id: " + ep.getId());
                                     String newId = prompt("Enter new ID: ");
                                     ep.setId(newId);  // Set new ID using the setter
                                     break;
 
                                 case 2://edits first name
+                                    System.out.println("Original First Name: " + ep.getFirstName());
                                     String newFirstName = prompt("Enter new First Name: ");
                                     ep.setFirstName(newFirstName);  // Set new First Name
                                     break;
 
                                 case 3://edits lastname
+                                    System.out.println("Original Last Name: " + ep.getLastName());
                                     String newLastName = prompt("Enter new Last Name: ");
                                     ep.setLastName(newLastName);  // Set new Last Name
                                     break;
   
                                 case 4://edits occupation
+                                    System.out.println("Original Occupation: " + ep.getOccupation());
                                     String newOccupation = prompt("Enter new Occupation: ");
                                     ep.setOccupation(newOccupation);  // Set new Occupation
                                     break;
 
                                 case 5://edits country code
+                                    System.out.println("Original Country Code: " + ep.getCountryCode());
                                     int newCountryCode = Integer.parseInt(prompt("Enter new Country Code: "));
                                     ep.setCountryCode(newCountryCode);  // Set new Country Code
                                     break;
 
                                 case 6://edits the area code
+                                    System.out.println("Original Area Code: " + ep.getAreaCode());
                                     int newAreaCode = Integer.parseInt(prompt("Enter new Area Code: "));
                                     ep.setAreaCode(newAreaCode);  // Set new Area Code
                                     break;
 
                                 case 7: //edits the contact number
+                                    System.out.println("Original Contact Number: " + ep.getContactNum());
                                     String newContactNum = prompt("Enter new Phone Number: ");
                                     ep.setContactNum(newContactNum);  // Set new Phone Number
                                     break;
