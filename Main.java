@@ -40,13 +40,63 @@ public class Main
 
                             System.out.printf("Here is the Existing Contact about %s \n %s \n" , eid , ep);
                             showMenu(2, 2);
-//                            int eopt = Integer.parseInt(prompt("Select Which Information to Edit: "));
-//                            if (eopt == 1) {
-//                                Person.setId(Scanner.nextLine());
+//                          
+                            //int eopt = Integer.parseInt(prompt("Select Which Information to Edit: "));
+//                           // if (eopt == 1) {
+//                            //    Person.setId(Scanner.nextLine());
+//                             //   break;
+//                           // } else if (eopt == 2) {
 //                                break;
-//                            } else if (eopt == 2) {
-//                                break;
-//                            }
+//                          //  }
+
+                            int opt = Integer.parseInt(prompt("Select Which Information to edit"));
+
+                            switch (opt){
+
+                                case 1://edits ID
+                                    String newId = prompt("Enter new ID: ");
+                                    ep.setId(newId);  // Set new ID using the setter
+                                    break;
+
+                                case 2://edits first name
+                                    String newFirstName = prompt("Enter new First Name: ");
+                                    ep.setFirstName(newFirstName);  // Set new First Name
+                                    break;
+
+                                case 3://edits lastname
+                                    String newLastName = prompt("Enter new Last Name: ");
+                                    ep.setLastName(newLastName);  // Set new Last Name
+                                    break;
+  
+                                case 4://edits occupation
+                                    String newOccupation = prompt("Enter new Occupation: ");
+                                    ep.setOccupation(newOccupation);  // Set new Occupation
+                                    break;
+
+                                case 5://edits country code
+                                    int newCountryCode = Integer.parseInt(prompt("Enter new Country Code: "));
+                                    ep.setCountryCode(newCountryCode);  // Set new Country Code
+                                    break;
+
+                                case 6://edits the area code
+                                    int newAreaCode = Integer.parseInt(prompt("Enter new Area Code: "));
+                                    ep.setAreaCode(newAreaCode);  // Set new Area Code
+                                    break;
+
+                                case 7: //edits the contact number
+                                    String newContactNum = prompt("Enter new Phone Number: ");
+                                    ep.setContactNum(newContactNum);  // Set new Phone Number
+                                    break;
+
+                                case 8: //Return to Main Menu
+                                    break;
+
+                                default: //In case User inputs a number not in the given choices
+                                    System.out.println("Invalid Option");
+                                    break;
+                            }
+
+                            
 
                     }
                     break;
