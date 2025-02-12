@@ -31,6 +31,7 @@ public class Main
                 case 1:
                     pb.insert(createNewPerson());
                     break;
+                    
                 case 2:
 
                         String eid = prompt("Enter Contact ID to edit: ");
@@ -49,6 +50,7 @@ public class Main
 
                     }
                     break;
+                    
                 case 3:
                     String id = prompt("Enter contact ID to delete: ");
                     Person p = pb.getContact(id);
@@ -65,6 +67,7 @@ public class Main
                         System.out.println("This contact does not exist!");
                     }
                     break;
+                    
                 case 4:
                     while (true)
                     {
@@ -127,6 +130,7 @@ public class Main
                         }
                     }
                     break;
+                    
                 case 5:
                     exit = true;
                     break;
