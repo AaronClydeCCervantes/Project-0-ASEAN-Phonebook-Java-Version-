@@ -155,6 +155,13 @@ public class Phonebook
     public String toString()
     {
         // Complete this method.
-        return "";
+         if (isEmpty()) {
+            return "Phonebook is empty.";
+        }
+        String result = "";
+        for (int i = 0; i < size; i++) {
+            result += contacts[i].toString() + "\n";
+        }
+        return result;
     }
 }
