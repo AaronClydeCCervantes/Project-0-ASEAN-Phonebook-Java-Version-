@@ -31,7 +31,11 @@ public class Phonebook
     public Person getContactAtIndex(int index)
     {
         // Complete this method
-        return null;
+        // Check if the index is out of range
+        if (isEmpty() || index < 0 || index >= size || contacts[index] == null) {
+            return null;
+        }
+        return contacts[index];
     }
 
     /**
