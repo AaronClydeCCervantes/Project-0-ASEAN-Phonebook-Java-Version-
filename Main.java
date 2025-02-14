@@ -36,6 +36,56 @@ public class Main
                     pb.insert(createNewPerson());
                     break;
                 case 2:
+                    // EDIT METHOD
+                    String id = prompt("Enter student number: ");
+                    Person p = pb.getContact(id);
+
+                    if (p == null) {
+                        System.out.println("Error: Contact ID does not exist.");
+                    } else {
+                        while (true) {
+                            System.out.println("\nHere is the existing information about " + id + ":");
+                            System.out.println(p);
+                            System.out.println("Which of the following information do you wish to change?");
+                            showMenu(2, 4);
+
+                            int choice = Integer.parseInt(prompt("Enter choice: "));
+
+                            switch (choice) {
+                                case 1:
+                                    String newContactId = prompt("Enter new student number: ");
+                                    p.setId(newContactId);
+                                    break;
+                                case 2:
+                                    p.setLName(prompt("Enter new surname: "));
+                                    break;
+                                case 3:
+                                    p.setSex(prompt("Enter new gender(M for male, F for female): "));
+                                    break;
+                                case 4:
+                                    p.setOccupation(prompt("Enter new occupation: "));
+                                    break;
+                                case 5:
+                                    p.setCountryCode(Integer.parseInt(prompt("Enter new country code: ")));
+                                    break;
+                                case 6:
+                                    p.setAreaCode(Integer.parseInt(prompt("Enter new area code: ")));
+                                    break;
+                                case 7:
+                                    p.setContactNum(prompt("Enter new phone number: "));
+                                    break;
+                                case 8:
+                                    System.out.println("Returning to main menu...");
+                                    break; // Correctly exits the loop
+                                default:
+                                    System.out.println("Invalid choice. Please try again.");
+                            }
+
+                            if (choice == 8) {
+                                break; // Ensure the loop exits when returning to the main menu
+                            }
+                        }
+                    }
                     break;
                 case 3:
                     String id = prompt("Enter contact ID to delete: ");
@@ -79,7 +129,7 @@ public class Main
                         {
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
-                            showMenu(3, 1);
+                            showMenu(4, 5);
                             while (true)
                             {
                                 int countryCode = Integer.parseInt(prompt("Enter Country Code: "));
