@@ -89,8 +89,8 @@ public class Main
                     }
                     break;
                 case 3:
-                    String id = prompt("Enter contact ID to delete: ");
-                    Person p = pb.getContact(id);
+                    id = prompt("Enter contact ID to delete: ");
+                    p = pb.getContact(id);
                     if (p != null)
                     {
                         Person deletedContact = pb.deleteContact(id);
