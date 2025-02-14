@@ -47,6 +47,15 @@ public class Phonebook
     public Person getContact(String id)
     {
         // Complete this method
+        if (isEmpty() || id == null) {
+            return null; //Checks if the ID can't be found in the contacts
+        }
+        // Iterate through the contacts to find a matching ID
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null && contacts[i].getId().equals(id)) {
+                return contacts[i]; // Return the matching person
+            }
+        }
         return null;
     }
 
