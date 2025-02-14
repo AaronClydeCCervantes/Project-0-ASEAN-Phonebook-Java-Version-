@@ -231,6 +231,7 @@ public class Main
     public static int convertChoices(int choice)
     {
         // Complete this method.
+        return 0;
     }
 
     /**
