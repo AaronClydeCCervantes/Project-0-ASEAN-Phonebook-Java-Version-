@@ -13,7 +13,11 @@ public class Main
             {
                     // Menu for View Phonebook
                     "View All", "View Contact through ID", "View Contacts through Country Code",
-                    "Go back to Main Menu" }, };
+                    "Go back to Main Menu"},
+            {
+                    // Country Codes
+                    "Burma", "Cambodia", "Thailand", "Vietnam", "Malaysia", "Philippines",
+                    "Indonesia", "Timor Leste", "Laos", "Brunei" ,"All", "No More"}, };
     private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args)
