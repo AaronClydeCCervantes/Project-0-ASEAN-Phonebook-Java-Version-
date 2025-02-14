@@ -5,19 +5,20 @@ public class Main
 
     private static final String[][] MENUS = { {
             // Main Menu
-            "Add New Contact", "Edit Contact", "Delete Contact", "View Phonebook", "Exit" },
+            "Store to ASEAN phonebook", "Edit entry in ASEAN phonebook", "Delete entry from ASEAN phonebook", "View/search ASEAN phonebook", "Exit" },
             {
-                    // Edit Contact Menu
-                    "Student Number", "First Name", "Last Name", "Occupation", "Country Code",
+                    // Store to ASEAN phonebook Menu
+                    "Student number", "Surname", "Gender", "Occupation", "Country Code",
                     "Area Code", "Phone Number", "None - Go back to Main Menu" },
             {
                     // Menu for View Phonebook
                     "View All", "View Contact through ID", "View Contacts through Country Code",
-                    "Go back to Main Menu"},
+                    "Go back to Main Menu" },
             {
                     // Country Codes
                     "Burma", "Cambodia", "Thailand", "Vietnam", "Malaysia", "Philippines",
                     "Indonesia", "Timor Leste", "Laos", "Brunei" ,"All", "No More"}, };
+
     private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args)
