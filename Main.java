@@ -34,7 +34,15 @@ public class Main
             switch (opt)
             {
                 case 1:
-                    pb.insert(createNewPerson());
+                    while (true) {
+                        pb.insert(createNewPerson());
+
+                        String another = prompt("Do you want to enter another entry [Y/N]? ").trim().toUpperCase();
+                        if (!another.equals("Y")) {
+                            System.out.println("Returning to main menu...");
+                            break;
+                        }
+                    }
                     break;
                 case 2:
                     // EDIT METHOD
@@ -89,19 +97,21 @@ public class Main
                     }
                     break;
                 case 3:
-                    id = prompt("Enter contact ID to delete: ");
+                    id = prompt("Enter student number: ");
                     p = pb.getContact(id);
-                    if (p != null)
-                    {
-                        Person deletedContact = pb.deleteContact(id);
-                        if (deletedContact != null)
-                        {
-                            System.out.println("Contact has been successfully deleted!");
+                    if (p == null) {
+                        System.out.println("Error: Contact ID does not exist!");
+                    } else {
+                        String confirmation = prompt("Are you sure you want to delete it [Y/N]? ").trim().toUpperCase();
+
+                        if (confirmation.equals("Y")) {
+                            Person deletedContact = pb.deleteContact(id);
+                            if (deletedContact != null) {
+                                System.out.println("Deletion successful.");
+                            }
+                        } else {
+                            System.out.println("Deletion did not proceed.");
                         }
-                    }
-                    else
-                    {
-                        System.out.println("This contact does not exist!");
                     }
                     break;
                 case 4:
@@ -188,7 +198,7 @@ public class Main
      * 3 for View Phonebook Menu. <br>
      * <br>
      * 4 for Country Code Menu.
-     * 
+     *
      * @param menuIdx Index of the menu to be shown.
      * @param inlineTexts Number of menu options to be printed in a single line. Set to 1 if you
      *        want every line to only have one menu option.
@@ -215,39 +225,38 @@ public class Main
 
     /**
      * Convert choices from the menu into their appropriate country code values.
-     * 
+     *
      * @return Country code value of the menu choice.
      */
-    private int convertChoices(int choice)
+    public static int convertChoices(int choice)
     {
         // Complete this method.
-        return 0;
     }
 
     /**
      * Create a new person object using a slightly complicated setup.
-     * 
+     *
      * @return Newly created person object.
      */
     private static Person createNewPerson()
     {
         String id, fname, lname, sex, occupation, contactNum;
         int countryCode, areaCode;
-        id = prompt("Enter Contact ID: ");
-        fname = prompt("Enter First Name: ");
-        lname = prompt("Enter Last Name: ");
-        occupation = prompt("Enter Occupation: ");
-        sex = prompt("Enter sex/gender: ");
-        countryCode = Integer.parseInt(prompt("Enter Country Code: "));
-        areaCode = Integer.parseInt(prompt("Enter Area Code: "));
-        contactNum = prompt("Enter Contact Number: ");
+        id = prompt("Enter student number: ");
+        fname = prompt("Enter first name: ");
+        lname = prompt("Enter last name: ");
+        occupation = prompt("Enter occupation: ");
+        sex = prompt("Enter gender(M for male, F for female): ");
+        countryCode = Integer.parseInt(prompt("Enter country code: "));
+        areaCode = Integer.parseInt(prompt("Enter area code: "));
+        contactNum = prompt("Enter contact number: ");
         return new Person(id, fname, lname, sex, occupation, contactNum, countryCode, areaCode);
     }
 
     /**
      * Receive prompt and return the inputted value back to the variable or process that requires
      * it. Data type is String. Do not forget to type cast if possible.
-     * 
+     *
      * @param phrase Phrase to be given to user when requiring input.
      * @return Returns the data needed.
      */
