@@ -53,14 +53,14 @@ public class Main
                             System.out.println("\nHere is the existing information about " + id + ":");
                             System.out.println(p);
                             System.out.println("Which of the following information do you wish to change?");
-                            showMenu(2, 4);
+                            showMenu(2, 1);
 
                             int choice = Integer.parseInt(prompt("Enter choice: "));
 
                             switch (choice) {
                                 case 1:
-                                    String newContactId = prompt("Enter new student number: ");
-                                    p.setId(newContactId);
+                                    pb.getContact(id);
+                                    p.setId(prompt("Enter new student number: "));
                                     break;
                                 case 2:
                                     p.setLName(prompt("Enter new surname: "));
@@ -122,9 +122,10 @@ public class Main
                         if (showOpt == 1) {
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
-                            showMenu(4, 5);
+                            showMenu(4, 1);
                             while (true) {
-                                int countryCode = Integer.parseInt(prompt("\nEnter Country Code: "));
+                                int choice = Integer.parseInt(prompt("\nEnter Country Code: "));
+                                int countryCode = convertChoices(choice);
                                 // Print if input is 0
                                 if (countryCode == 0) {
                                     pb.printContactsFromCountryCodes(countryCodes);
@@ -142,7 +143,7 @@ public class Main
                                 }
                                 // Only add if area codes isn't part of the array...
                                 if (!exists) {
-                                    countryCodes[ccCount] = convertChoices(countryCode);
+                                    countryCodes[ccCount] = countryCode;
                                     ccCount++;
                                 }
 

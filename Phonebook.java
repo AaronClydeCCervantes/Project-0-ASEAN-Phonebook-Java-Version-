@@ -210,21 +210,7 @@ public class Phonebook
     public String printContactsFromCountryCodes(int... countryCodes)
     {
         // Complete this method.
-        if (isEmpty()) return ""; // Don't print unnecessary messages
-
-        String result = "";
-        for (int i = 0; i < size; i++) {
-            if (contacts[i] != null) {
-                int contactCode = contacts[i].getCountryCode(); // Use getCountryCode()
-                for (int code : countryCodes) {
-                    if (code == 0 || contactCode == code) { // 0 means ALL contacts
-                        result += contacts[i] + "\n";
-                        break; // Avoid duplicate entries
-                    }
-                }
-            }
-        }
-        return result;
+        return "Returned";
     }
 
     /**
