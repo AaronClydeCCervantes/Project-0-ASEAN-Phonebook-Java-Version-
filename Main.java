@@ -59,7 +59,6 @@ public class Main
 
                             switch (choice) {
                                 case 1:
-                                    // Update can only be seen after you exit to main menu
                                     p.setId(prompt("Enter new student number: "));
                                     break;
                                 case 2:

@@ -39,7 +39,7 @@ public class Person implements Comparable<Person>
 
     public String getFullName()
     {
-        return this.getFName() + " " + this.getLName();
+        return this.getLName() + ", " + this.getFName();
     }
 
     public String getSex()
@@ -162,7 +162,7 @@ public class Person implements Comparable<Person>
      */
     public String toString()
     {
-        return String.format("%s is a %s. %s number is %s", this.getFullName(),
-                this.getOccupation(), this.getPronoun(), this.getPhoneNumber());
+        return String.format("%s, with a student number of %s, is a %s. %s number is %s", this.getFullName(),
+                this.getId(), this.getOccupation(), this.getPronoun(), this.getPhoneNumber());
     }
 }
