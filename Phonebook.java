@@ -210,7 +210,9 @@ public class Phonebook
     public String printContactsFromCountryCodes(int... countryCodes)
     {
         // Complete this method.
-        return "Returned";
+        if (countryCodes.length == 0) {
+            
+        }
     }
 
     /**

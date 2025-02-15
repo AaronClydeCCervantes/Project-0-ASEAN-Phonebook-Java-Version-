@@ -123,6 +123,11 @@ public class Main
                                 int choice = Integer.parseInt(prompt("\nEnter Country Code: "));
                                 int countryCode = convertChoices(choice);
 
+                                // Store input
+                                if (countryCode <= 11) {
+                                    countryCodes[countryCode] = countryCode;
+                                    break;
+                                }
                                 // Print if input is 13
                                 if (countryCode == 13) {
                                     pb.printContactsFromCountryCodes(countryCodes);
