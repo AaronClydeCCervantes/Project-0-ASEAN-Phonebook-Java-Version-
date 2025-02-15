@@ -118,13 +118,13 @@ public class Main
                         if (showOpt == 1) {
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
-                            showMenu(4, 1);
+                            showMenu(4, 4);
                             while (true) {
                                 int choice = Integer.parseInt(prompt("\nEnter Country Code: "));
                                 int countryCode = convertChoices(choice);
 
-                                // Print if input is 0
-                                if (countryCode == 0) {
+                                // Print if input is 13
+                                if (countryCode == 13) {
                                     pb.printContactsFromCountryCodes(countryCodes);
                                     break;
                                 }
