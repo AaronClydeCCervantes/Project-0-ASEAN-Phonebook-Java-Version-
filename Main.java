@@ -47,7 +47,7 @@ public class Main
                     Person p = pb.getContact(id);
 
                     if (p == null) {
-                        System.out.println("Error: Contact ID does not exist.");
+                        System.out.println("Error: Student ID does not exist.");
                     } else {
                         while (true) {
                             System.out.println("\nHere is the existing information about " + id + ":");
