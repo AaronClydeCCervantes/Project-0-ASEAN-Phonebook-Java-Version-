@@ -16,7 +16,7 @@ public class Main
             {
                     // Country Codes
                     "Burma", "Cambodia", "Thailand", "Vietnam", "Malaysia", "Philippines",
-                    "Indonesia", "Timor Leste", "Laos", "Brunei" ,"All", "No More"}, };
+                    "Indonesia", "Timor Leste", "Laos", "Brunei", "Singapore" ,"All", "No More"}, };
 
     private static final Scanner input = new Scanner(System.in);
 
@@ -24,14 +24,12 @@ public class Main
     {
         Phonebook pb = new Phonebook();
         boolean exit = false;
-        while (true)
-        {
+        do {
             showMenu(1, 1);
             // System.out.print("Select an option: ");
             // int opt = input.nextInt();
             int opt = Integer.parseInt(prompt("Select an option: "));
-            switch (opt)
-            {
+            switch (opt) {
                 case 1:
                     while (true) {
                         pb.insert(createNewPerson());
@@ -114,34 +112,28 @@ public class Main
                     }
                     break;
                 case 4:
-                    while (true)
-                    {
+                    while (true) {
                         showMenu(3, 1);
                         int showOpt = Integer.parseInt(prompt("Enter option:"));
 //                        if (showOpt == 1)
 //                        {
 //                            System.out.println(pb);
 //                        }
-                        if (showOpt == 1)
-                        {
+                        if (showOpt == 1) {
                             int ccCount = 0;
                             int[] countryCodes = new int[12];
                             showMenu(4, 5);
-                            while (true)
-                            {
+                            while (true) {
                                 int countryCode = Integer.parseInt(prompt("\nEnter Country Code: "));
                                 // Print if input is 0
-                                if (countryCode == 0)
-                                {
+                                if (countryCode == 0) {
                                     pb.printContactsFromCountryCodes(countryCodes);
                                     break;
                                 }
                                 // Check if area code is already inputted
                                 boolean exists = false;
-                                for (int a : countryCodes)
-                                {
-                                    if (a == countryCode)
-                                    {
+                                for (int a : countryCodes) {
+                                    if (a == countryCode) {
                                         System.out.println(
                                                 "This area code has already been inputted!");
                                         exists = true;
@@ -149,29 +141,21 @@ public class Main
                                     }
                                 }
                                 // Only add if area codes isn't part of the array...
-                                if (!exists)
-                                {
-                                    countryCodes[ccCount] = countryCode;
+                                if (!exists) {
+                                    countryCodes[ccCount] = convertChoices(countryCode);
                                     ccCount++;
                                 }
 
                             }
-                        }
-                        else if (showOpt == 2)
-                        {
+                        } else if (showOpt == 2) {
                             String targetId = prompt("Enter id to search: ");
                             Person target = pb.getContact(targetId);
-                            if (target != null)
-                            {
+                            if (target != null) {
                                 System.out.println(target);
-                            }
-                            else
-                            {
+                            } else {
                                 System.out.println("No contact exists with that id!");
                             }
-                        }
-                        else if (showOpt == 3)
-                        {
+                        } else if (showOpt == 3) {
                             break;
                         }
                     }
@@ -182,9 +166,7 @@ public class Main
                 default:
                     System.out.println("Invalid option!");
             }
-            if (exit)
-                break;
-        }
+        } while (!exit);
     }
 
     /**
