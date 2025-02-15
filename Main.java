@@ -12,8 +12,7 @@ public class Main
                     "Area Code", "Phone Number", "None - Go back to Main Menu" },
             {
                     // Menu for View Phonebook
-                    "View All", "View Contact through ID", "View Contacts through Country Code",
-                    "Go back to Main Menu" },
+                    "Search by country", "Search by id", "Go back to Main Menu" },
             {
                     // Country Codes
                     "Burma", "Cambodia", "Thailand", "Vietnam", "Malaysia", "Philippines",
@@ -119,27 +118,14 @@ public class Main
                     {
                         showMenu(3, 1);
                         int showOpt = Integer.parseInt(prompt("Enter option:"));
+//                        if (showOpt == 1)
+//                        {
+//                            System.out.println(pb);
+//                        }
                         if (showOpt == 1)
                         {
-                            System.out.println(pb);
-                        }
-                        else if (showOpt == 2)
-                        {
-                            String targetId = prompt("Enter id to search: ");
-                            Person target = pb.getContact(targetId);
-                            if (target != null)
-                            {
-                                System.out.println(target);
-                            }
-                            else
-                            {
-                                System.out.println("No contact exists with that surname!");
-                            }
-                        }
-                        else if (showOpt == 3)
-                        {
                             int ccCount = 0;
-                            int[] countryCodes = new int[11];
+                            int[] countryCodes = new int[12];
                             showMenu(4, 5);
                             while (true)
                             {
@@ -171,7 +157,20 @@ public class Main
 
                             }
                         }
-                        else if (showOpt == 4)
+                        else if (showOpt == 2)
+                        {
+                            String targetId = prompt("Enter id to search: ");
+                            Person target = pb.getContact(targetId);
+                            if (target != null)
+                            {
+                                System.out.println(target);
+                            }
+                            else
+                            {
+                                System.out.println("No contact exists with that id!");
+                            }
+                        }
+                        else if (showOpt == 3)
                         {
                             break;
                         }
@@ -231,7 +230,36 @@ public class Main
     public static int convertChoices(int choice)
     {
         // Complete this method.
-        return 0;
+        switch (choice) {
+            case 1:
+                return 856;  // Burma
+            case 2:
+                return 855;  // Cambodia
+            case 3:
+                return 66;   // Thailand
+            case 4:
+                return 84;   // Vietnam
+            case 5:
+                return 60;   // Malaysia
+            case 6:
+                return 63;   // Philippines
+            case 7:
+                return 62;   // Indonesia
+            case 8:
+                return 670;  // Timor Leste
+            case 9:
+                return 95;   // Laos
+            case 10:
+                return 673; // Brunei
+            case 11:
+                return 65;  // Singapore
+            case 12:
+                return 0;   // "All"
+            case 0:
+                return -1;   // "No More" (special case, adjust as needed)
+            default:
+                return -1;  // Invalid choice
+        }
     }
 
     /**
