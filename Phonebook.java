@@ -156,6 +156,18 @@ public class Phonebook
     public Person deleteContact(String id)
     {
         // Complete this method...
+        if (isEmpty()) {
+            return null;
+        }
+        for (int i = 0; i < size; i++) {
+            if (contacts[i] != null && contacts[i].getId().equals(id)) {
+                Person deleted = contacts[i];
+                adjustPhonebook(i, size - 1, "f");
+                contacts[size - 1] = null;
+                decrSize();
+                return deleted;
+            }
+        }
         return null;
     }
 
