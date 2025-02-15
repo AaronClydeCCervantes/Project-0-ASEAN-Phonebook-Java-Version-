@@ -59,7 +59,7 @@ public class Main
 
                             switch (choice) {
                                 case 1:
-                                    pb.getContact(id);
+                                    // Update can only be seen after you exit to main menu
                                     p.setId(prompt("Enter new student number: "));
                                     break;
                                 case 2:
@@ -130,12 +130,11 @@ public class Main
                                     break;
                                 }
 
-                                // Print if input is 12
+                                // Print All if input is 12
                                 if (countryCode == 12) {
                                     System.out.println(pb);
                                     break;
                                 }
-
 
                                 // Check if area code is already inputted
                                 boolean exists = false;
