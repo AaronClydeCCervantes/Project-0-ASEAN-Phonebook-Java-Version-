@@ -143,7 +143,7 @@ public class Main
                             showMenu(4, 5);
                             while (true)
                             {
-                                int countryCode = Integer.parseInt(prompt("Enter Country Code: "));
+                                int countryCode = Integer.parseInt(prompt("\nEnter Country Code: "));
                                 // Print if input is 0
                                 if (countryCode == 0)
                                 {
