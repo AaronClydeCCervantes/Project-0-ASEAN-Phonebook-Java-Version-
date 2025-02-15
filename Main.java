@@ -121,7 +121,7 @@ public class Main
 //                        }
                         if (showOpt == 1) {
                             int ccCount = 0;
-                            int[] countryCodes = new int[12];
+                            int[] countryCodes = new int[11];
                             showMenu(4, 5);
                             while (true) {
                                 int countryCode = Integer.parseInt(prompt("\nEnter Country Code: "));
@@ -238,7 +238,7 @@ public class Main
             case 12:
                 return 0;   // "All"
             case 0:
-                return -1;   // "No More" (special case, adjust as needed)
+                return -1;   // "No More"
             default:
                 return -1;  // Invalid choice
         }
