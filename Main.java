@@ -115,10 +115,6 @@ public class Main
                     while (true) {
                         showMenu(3, 1);
                         int showOpt = Integer.parseInt(prompt("Enter option:"));
-//                        if (showOpt == 1)
-//                        {
-//                            System.out.println(pb);
-//                        }
                         if (showOpt == 1) {
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
@@ -126,11 +122,20 @@ public class Main
                             while (true) {
                                 int choice = Integer.parseInt(prompt("\nEnter Country Code: "));
                                 int countryCode = convertChoices(choice);
+
                                 // Print if input is 0
                                 if (countryCode == 0) {
                                     pb.printContactsFromCountryCodes(countryCodes);
                                     break;
                                 }
+
+                                // Print if input is 12
+                                if (countryCode == 12) {
+                                    System.out.println(pb);
+                                    break;
+                                }
+
+
                                 // Check if area code is already inputted
                                 boolean exists = false;
                                 for (int a : countryCodes) {
@@ -237,9 +242,9 @@ public class Main
             case 11:
                 return 65;  // Singapore
             case 12:
-                return 0;   // "All"
-            case 0:
-                return -1;   // "No More"
+                return 12;   // "All"
+            case 13:
+                return 0;   // "No More"
             default:
                 return -1;  // Invalid choice
         }
