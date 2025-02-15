@@ -207,12 +207,26 @@ public class Phonebook
      * @param countryCodes Area codes to be used as a filter.
      * @return Contacts on this phonebook under a particular area code set by the user.
      */
-    public String printContactsFromCountryCodes(int... countryCodes)
-    {
+    public String printContactsFromCountryCodes(int... countryCodes) {
         // Complete this method.
-        if (countryCodes.length == 0) {
-            
+        if (isEmpty()) {
+            return "No Country selected.";
         }
+
+        String result = "";
+        for (int i = 0; i < size; i++) {
+            Person contact = contacts[i];
+            if (contact != null) {
+                int contactCountryCode = contact.getCountryCode();
+                for (int code : countryCodes) {
+                    if (contactCountryCode == code) {
+                        result += contact + "\n";
+                        break; // Stop checking other codes once a match is found
+                    }
+                }
+            }
+        }
+        return result;
     }
 
     /**

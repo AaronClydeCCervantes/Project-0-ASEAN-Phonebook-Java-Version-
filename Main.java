@@ -16,7 +16,7 @@ public class Main
             {
                     // Country Codes
                     "Burma", "Cambodia", "Thailand", "Vietnam", "Malaysia", "Philippines",
-                    "Indonesia", "Timor Leste", "Laos", "Brunei", "Singapore" ,"All", "No More"}, };
+                    "Indonesia", "Timor Leste", "Laos", "Brunei", "Singapore" , "All"}, };
 
     private static final Scanner input = new Scanner(System.in);
 
@@ -119,18 +119,14 @@ public class Main
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
                             showMenu(4, 4);
+                            System.out.print("[0]  No more ");
                             while (true) {
-                                int choice = Integer.parseInt(prompt("\nEnter Country Code: "));
-                                int countryCode = convertChoices(choice);
+                                int countryCode = Integer.parseInt(prompt("\nEnter option: "));
 
-                                // Store input
-                                if (countryCode <= 11) {
-                                    countryCodes[countryCode] = countryCode;
-                                    break;
-                                }
-                                // Print if input is 13
-                                if (countryCode == 13) {
-                                    pb.printContactsFromCountryCodes(countryCodes);
+
+                                // Print if input is 0
+                                if (countryCode == 0) {
+                                    System.out.println(pb.printContactsFromCountryCodes(countryCodes));
                                     break;
                                 }
 
@@ -153,7 +149,7 @@ public class Main
                                 }
                                 // Only add if area codes isn't part of the array...
                                 if (!exists) {
-                                    countryCodes[ccCount] = countryCode;
+                                    countryCodes[ccCount] = convertChoices(countryCode);
                                     ccCount++;
                                 }
 
@@ -248,7 +244,7 @@ public class Main
                 return 65;  // Singapore
             case 12:
                 return 12;   // "All"
-            case 13:
+            case 0:
                 return 0;   // "No More"
             default:
                 return -1;  // Invalid choice
