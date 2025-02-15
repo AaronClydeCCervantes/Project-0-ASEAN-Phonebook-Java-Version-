@@ -210,7 +210,7 @@ public class Phonebook
     public String printContactsFromCountryCodes(int... countryCodes) {
         // Complete this method.
         if (isEmpty()) {
-            return "No Country selected.";
+            return "No Contacts in that selected Country.";
         }
 
         String result = "";

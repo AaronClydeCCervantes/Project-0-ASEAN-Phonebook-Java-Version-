@@ -118,20 +118,24 @@ public class Main
                         if (showOpt == 1) {
                             int ccCount = 0;
                             int[] countryCodes = new int[11];
+                            System.out.print("From which country do you want to view: \n");
                             showMenu(4, 4);
-                            System.out.print("[0]  No more ");
+                            System.out.print("[0]  No more -  view selected country codes: ");
                             while (true) {
-                                int countryCode = Integer.parseInt(prompt("\nEnter option: "));
+                                System.out.println("\nSelect country code (Select as much as you like): ");
+                                int countryCode = Integer.parseInt(prompt("Enter option: "));
 
 
                                 // Print if input is 0
                                 if (countryCode == 0) {
+                                    System.out.println("Here are the contacts from the " + ccCount + " countries you selected : ");
                                     System.out.println(pb.printContactsFromCountryCodes(countryCodes));
                                     break;
                                 }
 
                                 // Print All if input is 12
                                 if (countryCode == 12) {
+                                    System.out.println("Here are all the contacts from the Phonebook: ");
                                     System.out.println(pb);
                                     break;
                                 }
