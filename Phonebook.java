@@ -105,6 +105,17 @@ public class Phonebook
     public void insert(Person p)
     {
         // Complete this method
+        if (size == contacts.length) {
+            increasePhonebookMaxSize();
+        }
+        if (getContact(p.getId()) != null) { // Prevent duplicates
+            System.out.println("Error: Student ID already exists. Please try Again");
+            return;
+        }
+        int index = findIndexInsertion(p);
+        adjustPhonebook(index, size, "b");
+        contacts[index] = p;
+        incrSize();
     }
 
     /**
