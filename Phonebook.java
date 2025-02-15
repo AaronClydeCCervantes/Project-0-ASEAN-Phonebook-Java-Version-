@@ -236,7 +236,7 @@ public class Phonebook
     public String toString()
     {
         // Complete this method.
-         if (isEmpty()) {
+        if (isEmpty()) {
             return "Phonebook is empty.";
         }
         String result = "";
